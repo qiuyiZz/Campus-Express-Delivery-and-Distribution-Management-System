@@ -51,9 +51,9 @@ window.print();
 </script>
   </head>
   <body>
-        <div class="header">
+   <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="/Express/index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -77,40 +77,38 @@ window.print();
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/sign">收件管理</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/sign">签收录入</a>
+                    <a href="/Express/servlet/distribute">派件</a>
+                    <a href="/Express/servlet/example">问题件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
+                <a href="/Express/servlet/order">寄件管理</a>
+                
 
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
+                <a href="#">查看空间信息</a>
                 <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
+                    <a href="/Express/enter_grid">自提柜</a>
+                    <a href="/Express/enter_shelf">货架区</a>
                 </div>
             </li>
             <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
+                <a href="/Express/servlet/report">查看每日报告</a>
 
             </li>
 
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
-      
-     
        <div class="clears"></div>
       </ul>
      </div><!--nav/-->
@@ -140,7 +138,7 @@ window.print();
 											<div class="card-box noradius noborder bg-default">
 													<i class="fa fa-file-text-o float-right text-white"></i>
 													<h6 class="text-white text-uppercase m-b-20">日期</h6>
-													<h1 class="m-b-20 text-white counter">2020/05/03</h1>
+													<h1 class="m-b-20 text-white counter"><%=session.getAttribute("date") %></h1>
 													<span class="text-white"></span>
 											</div>
 									</div>
@@ -149,7 +147,7 @@ window.print();
 											<div class="card-box noradius noborder bg-warning">
 													<i class="fa fa-bar-chart float-right text-white"></i>
 													<h6 class="text-white text-uppercase m-b-20">签收数量</h6>
-													<h1 class="m-b-20 text-white counter">250</h1>
+													<h1 class="m-b-20 text-white counter"><%=session.getAttribute("s_n") %></h1>
 													<span class="text-white"></span>
 											</div>
 									</div>
@@ -158,7 +156,7 @@ window.print();
 											<div class="card-box noradius noborder bg-info">
 													<i class="fa fa-user-o float-right text-white"></i>
 													<h6 class="text-white text-uppercase m-b-20">取件数量</h6>
-													<h1 class="m-b-20 text-white counter">213</h1>
+													<h1 class="m-b-20 text-white counter"><%=session.getAttribute("w_n") %></h1>
 													<span class="text-white"></span>
 											</div>
 									</div>
@@ -167,7 +165,7 @@ window.print();
 											<div class="card-box noradius noborder bg-danger">
 													<i class="fa fa-bell-o float-right text-white"></i>
 													<h6 class="text-white text-uppercase m-b-20">寄件数量</h6>
-													<h1 class="m-b-20 text-white counter">58</h1>
+													<h1 class="m-b-20 text-white counter"><%=session.getAttribute("se_n") %></h1>
 													<span class="text-white"></span>
 											</div>
 									</div>
@@ -176,7 +174,7 @@ window.print();
 											<div class="card-box noradius noborder bg-dark">
 													<i class="fa fa-bar-chart float-right text-white"></i>
 													<h6 class="text-white text-uppercase m-b-20">问题件数量</h6>
-													<h1 class="m-b-20 text-white counter">21</h1>
+													<h1 class="m-b-20 text-white counter"><%=session.getAttribute("e_n") %></h1>
 													<span class="text-white"></span>
 											</div>
 									</div>
@@ -184,7 +182,7 @@ window.print();
 											<div class="card-box noradius noborder bg-pink">
 													<i class="fa fa-bar-chart float-right text-white"></i>
 													<h6 class="text-white text-uppercase m-b-20">自提柜利用率</h6>
-													<h1 class="m-b-20 text-white counter">67%</h1>
+													<h1 class="m-b-20 text-white counter"><%=session.getAttribute("rate") %></h1>
 													<span class="text-white"></span>
 											</div>
 									</div>

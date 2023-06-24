@@ -16,20 +16,33 @@
     <link href="/Express/static/css1/response.css" rel="stylesheet">
     <link href="/Express/static/css1/silde.css" rel="stylesheet">
     <link href="/Express/static/css/reset.css" rel="stylesheet" />
-    <script type="text/javascript" src="js_timedelay/jquery.min.js"></script>
-    <script type="text/javascript" src="js_timedelay/angular.min.js"></script>
-    <script type="text/javascript" src="js_timedelay/wui-date.js" charset="utf-8"></script>
+    <script type="text/javascript" src="static/js_timedelay/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js_timedelay/angular.min.js"></script>
+    <script type="text/javascript" src="static/js_timedelay/wui-date.js" charset="utf-8"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <script type="text/javascript">
+           var tip = null;
+     <% String msg=(String)request.getAttribute("msg");if(msg!=null){String temp = "tip = '"+msg+"'";out.println(temp);}%>
+		var input = document.getElementById('date1');
+		
+		if(tip!=null){
+        	window.onload = function(){
+        	alert(tip);
+         	}
+     	}
+		var date=input.getAttribute("ngModel");
+		alert(date);
+ </script>
 </head>
 <body>
     <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="index_client.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -53,36 +66,38 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index_client.jsp">首页</a></li>
+            <li><a href="/Express/index_client.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">快件查询</a>
+                <a href="/Express/servlet/receiveC">快件查询</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">收件查询</a>
-                    <a href="distribute.jsp">寄件查询</a>
+                    <a href="/Express/servlet/receiveC">收件查询</a>
+                    <a href="/Express/servlet/sendC">寄件查询</a>
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件</a>
+                <a href="/Express/send.jsp">寄件</a>
 
             </li>
              <li>
-                <a href="space_gui.jsp">时间管理</a>
+                <a href="/Express/timetable.jsp">时间管理</a>
                 <div class="chilNav">
-                    <a href="timetable.jsp">录入时间表</a>
-                    <a href="timedelay.jsp">申请延迟取件</a>
+                    <a href="/Express/timetable.jsp">录入时间表</a>
+                    <a href="/Express/timedelay.jsp">申请延迟取件</a>
 
                 </div>
             </li>
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile1"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
             <div class="clears"></div>
         </ul>
     </div><!--nav/-->
+    
     <div class="wui-content">
-        <div class="wui-area">
+    <form action="timedelay" method="get">
+    <div class="wui-area">
             <h2 class="h2" align="center">请输入您繁忙的时间段</h2>
         </div>
         <div class="wui-area" align="center">
@@ -98,12 +113,16 @@
             <h4 class="h4">结束日期</h4>
             <wui-date format="yyyy-mm-dd"
                       placeholder="请选择或输入日期"
-                      id="date1"
+                      id="date2"
                       btns="{'ok':'确定','now':'此刻'}"
                       ng-model="date2">
             </wui-date>
         </div>
+        <input type="hidden" value="2020-05-27" id="input" name="starttime" />
+        <input type="hidden" value="2020-05-28" name="endtime" />
         <div class="islsub" style="text-align:center;" ><input type="submit" style="width:120px;height:40px;font-size:1.6em;"value="申请延迟" /></div>
+    </form>
+        
    <footer>
       <div class="width1003">
       <ul>

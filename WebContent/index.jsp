@@ -25,9 +25,9 @@
     <![endif]-->
 </head>
 <body>
-    <div class="header">
+   <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="/Express/index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -51,41 +51,41 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/sign">收件管理</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/sign">签收录入</a>
+                    <a href="/Express/servlet/distribute">派件</a>
+                    <a href="/Express/servlet/example">问题件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
+                <a href="/Express/servlet/order">寄件管理</a>
+                
 
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
+                <a href="#">查看空间信息</a>
                 <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
+                    <a href="/Express/enter_grid">自提柜</a>
+                    <a href="/Express/enter_shelf">货架区</a>
                 </div>
             </li>
             <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
+                <a href="/Express/servlet/report">查看每日报告</a>
 
             </li>
 
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
-            <div class="clears"></div>
-        </ul>
-    </div><!--nav/-->
+       <div class="clears"></div>
+      </ul>
+     </div><!--nav/-->
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -165,7 +165,7 @@
                 <div class="index-search-list">
                     <div class="isl-box">
                         <h2>空间查询</h2>
-                        <form action="#" method="get">
+                        <form action="choose_index" name="choose" method="get">
                             <div class="islinput">
                                 <span ><big>空间类型:</big></span>
                                 <select>
@@ -270,7 +270,7 @@
       </div><!--width1003/-->
      </footer>
     <div class="copy">
-        Copyright © 2020 Wliu Co.,Ltd.    京ICP备00000000号    北京市昌平区沙河高教园 技术支持：Reserved
+        Copyright © 2020 Wliu Co.,Ltd.    京ICP备00000000号    北京市昌平区沙河高教园 技术支持：<a href="http://www.bootstrapmb.com/" title="bootstrapmb">Reserved</a>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/Express/static/js/jquery.min.js"></script>

@@ -28,11 +28,18 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <%  
+
+   int num=Integer.parseInt(session.getAttribute("num_e").toString());
+   String jsonStringrr=session.getAttribute("array_e").toString();
+ // System.out.println( jsonStringrr);
+
+%> 
   </head>
   <body>
-        <div class="header">
+   <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="/Express/index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -56,40 +63,38 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/sign">收件管理</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/sign">签收录入</a>
+                    <a href="/Express/servlet/distribute">派件</a>
+                    <a href="/Express/servlet/example">问题件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
+                <a href="/Express/servlet/order">寄件管理</a>
+                
 
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
+                <a href="#">查看空间信息</a>
                 <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
+                    <a href="/Express/enter_grid">自提柜</a>
+                    <a href="/Express/enter_shelf">货架区</a>
                 </div>
             </li>
             <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
+                <a href="/Express/servlet/report">查看每日报告</a>
 
             </li>
 
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
-      
-     
        <div class="clears"></div>
       </ul>
      </div><!--nav/-->
@@ -120,16 +125,11 @@
                         <div class="headboxtext">
                             <span class="span1">问题件列表</span>
                         </div>
-                        <!--批量删除-->
-                        <div class="PublicBtnIcon Color5Btn">
-                            <i class="iconfont  icon-shanchu"></i>
-                            <span>批量删除</span>
-                        </div>
 
-                        <div class="PublicBtnIcon Color2Btn fr Js_edit">
+                     <!--   <div class="PublicBtnIcon Color2Btn fr Js_edit">
                             <i class="iconfont icon-changyongtubiao-mianxing-"></i>
                             <span>添加</span>
-                        </div>
+                        </div>-->
                     </div>
 
                     <!--查询到的表格-->
@@ -153,151 +153,9 @@
                                 </tr>
 
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />
-                                        <label for="aa"></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>
-
-                                        <div class="PublicTableBtnIcon Color3Btn Js_edit">
-                                            <i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i>
-                                            <span>提醒</span>
-                                        </div>
-
-                                        <div class="PublicTableBtnIcon Color4Btn Js_delete">
-                                            <i class="iconfont icon-shanchu"></i>
-                                            <span>退回</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />
-                                        <label for="aa"></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>
-
-                                        <div class="PublicTableBtnIcon Color3Btn Js_edit">
-                                            <i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i>
-                                            <span>提醒</span>
-                                        </div>
-
-                                        <div class="PublicTableBtnIcon Color4Btn Js_delete">
-                                            <i class="iconfont icon-shanchu"></i>
-                                            <span>退回</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />
-                                        <label for="aa"></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>
-
-                                        <div class="PublicTableBtnIcon Color3Btn Js_edit">
-                                            <i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i>
-                                            <span>提醒</span>
-                                        </div>
-
-                                        <div class="PublicTableBtnIcon Color4Btn Js_delete">
-                                            <i class="iconfont icon-shanchu"></i>
-                                            <span>退回</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />
-                                        <label for="aa"></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>
-
-                                        <div class="PublicTableBtnIcon Color3Btn Js_edit">
-                                            <i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i>
-                                            <span>提醒</span>
-                                        </div>
-
-                                        <div class="PublicTableBtnIcon Color4Btn Js_delete">
-                                            <i class="iconfont icon-shanchu"></i>
-                                            <span>退回</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />
-                                        <label for="aa"></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>
-
-                                        <div class="PublicTableBtnIcon Color3Btn Js_edit">
-                                            <i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i>
-                                            <span>提醒</span>
-                                        </div>
-
-                                        <div class="PublicTableBtnIcon Color4Btn Js_delete">
-                                            <i class="iconfont icon-shanchu"></i>
-                                            <span>退回</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />
-                                        <label for="aa"></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>
-
-                                        <div class="PublicTableBtnIcon Color3Btn Js_edit">
-                                            <i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i>
-                                            <span>提醒</span>
-                                        </div>
-
-                                        <div class="PublicTableBtnIcon Color4Btn Js_delete">
-                                            <i class="iconfont icon-shanchu"></i>
-                                            <span>退回</span>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tbody id="result_e">
+                              
+                               
 
 
                             </tbody>
@@ -358,7 +216,7 @@
         </div>
     </div>
     <!--发送取件提醒-->
-    <div class="PublicFloatBox adduser">
+    <div class="PublicFloatBox f_alert">
         <div class="f_MiddleBox wid400">
             <div class="f_Head">
                 <span>提示消息</span>
@@ -383,6 +241,7 @@
                 </div>
                 </div>
          
+       
          </div><!--width1003/-->
      </div><!--content/-->
       <footer>
@@ -443,10 +302,60 @@
     });
     </script>
     <script type="text/javascript">
+    var html="";
+    var num="<%=num%>";
+
+    var data=<%=jsonStringrr%>;
+    for(var i=0;i<num;i++){
+   	 html+= '<tr>'+
+       ' <td>'+
+      ' <input id="aa" class="inputcheck" type="checkbox" name="inputcheck" />'+
+        '<label for="aa"></label>'+
+    '</td>'+
+   ' <td>'+data[i].a+'</td>'+
+   ' <td>'+data[i].b+'</td>'+
+   ' <td>'+data[i].c+'</td>'+
+   ' <td>'+data[i].d+'</td>'+
+   ' <td>'+data[i].e+'</td>'+
+   ' <td>'+data[i].f+'</td>'+
+   '  <td> <div class="PublicTableBtnIcon Color3Btn Js_alert"  onclick="remind(&quot;'+ data[i].a+'&quot;)"><i class="iconfont icon-tubiaozhizuomobanyihuifu-"></i><span>提醒</span></div>'+
+   '  <div class="PublicTableBtnIcon Color4Btn Js_detain" onclick="del(&quot;'+ data[i].a+'&quot;)"> <span>退回</span></div></td>'+
+   '</tr>';}
+   document.getElementById("result_e").innerHTML = html;
+
 	 $(function(){
 		 
 		 $(".nav li:eq(1) a:first").addClass("navCur");
 		 })
+		 $(".Js_closeBtn,.f_pormatBtn1,.f_pormatBtn2").click(function () {
+        $(".f_alert").fadeOut(200);
+    });
+	$(".Js_alert").click(function () {
+        $(".f_alert").fadeIn(200);
+    });
+	
+	function del(a){
+		alert("已退回");
+		var tmp=document.createElement("form");
+		var action="example?param3="+a;
+		tmp.action=action;
+		 tmp.method = "post"; 
+		 document.body.appendChild(tmp); 
+	     tmp.submit(); 
+	     return tmp; 
+	     document.location.reload();
+	}
+	
+	function remind(a){
+		var tmp=document.createElement("form");
+		var action="example?param2="+a;
+		tmp.action=action;
+		 tmp.method = "post"; 
+		 document.body.appendChild(tmp); 
+	     tmp.submit(); 
+	     return tmp; 
+	     document.location.reload();
+	}
 	</script>
     
   </body>

@@ -22,6 +22,15 @@
 			});
 		});
 	   </script>
+<script type="text/javascript">
+           var tip = null;
+     <% String msg=(String)request.getAttribute("msg");if(msg!=null){String temp = "tip = '"+msg+"'";out.println(temp);}%>
+    if(tip!=null){
+        window.onload = function(){
+        alert(tip);
+         }
+     }
+ </script>
 <!--//js-->
 </head>
 <body>
@@ -39,52 +48,52 @@
 					<div class="resp-tabs-container">
 						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 							<div class="login-top">
-								<form>
-									<input type="text" class="name" placeholder="账号"  required=""/>
-									<input type="password" class="password" placeholder="密码" required=""/>
+								<form action="login" method="get" >
+									<input type="text" name="username" class="name" placeholder="账号"  required=""/>
+									<input type="password" name="password" class="password" placeholder="密码" required=""/>
 									<div >
 									  <span style="width: 20%;font-size: 1em;color: #999;">您的角色：</span>
-									  <select style="width: 50%; margin: 0px; font-size: 1em;color: #999;">
-                                           <option value="html">用户</option>
-                                           <option value="css">员工</option>
+									  <select name="role" style="width: 50%; margin: 0px; font-size: 1em;color: #999;">
+                                           <option value="用户">用户</option>
+                                           <option value="员工">员工</option>
                                       </select>
 									</div>	
 									<input type="checkbox" id="brand" value="">
-								</form>
+							
 								<div class="login-bottom">
 									<ul>
 										<li>
 											<a href="#">忘记密码?</a>
 										</li>
 										<li>
-											<form>
-												<input type="submit" value="登录"/>
-											</form>
+											<input type="submit" value="登录"/>
 										</li>
 									<ul>
+					            </form>
 									<div class="clear"></div>
 								</div>	
 							</div>
 						</div>
 						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 							<div class="login-top sign-top">
-								<form>
-									<input type="text" class="name active" placeholder="您的姓名" required=""/>
-									<input type="text" class="email" placeholder="您的手机号" required=""/>
-									<input type="password" class="password" placeholder="密码" required=""/>		
+								<form action="login" method="post">
+									<input type="text" class="name active" name="name" placeholder="您的姓名" required=""/>
+									<input type="text" class="email" name="phone" placeholder="您的手机号" required=""/>
+									<input type="password" class="password" name="password" placeholder="密码" required=""/>		
 									<input type="checkbox" id="brand1" value="">
-								</form>
 								<div class="login-bottom">
 									<ul>
 										<li>
 											<a href="#">忘记密码?</a>
 										</li>
 										<li>
-											<form>
+											
 												<input type="submit" value="注册"/>
-											</form>
+											
 										</li>
 									<ul>
+								</form>
+								
 									<div class="clear"></div>
 								</div>	
 							</div>

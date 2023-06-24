@@ -27,7 +27,7 @@
 <body>
     <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="index_client.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -51,30 +51,30 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index_client.jsp">首页</a></li>
+            <li><a href="/Express/index_client.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">快件查询</a>
+                <a href="/Express/servlet/receiveC">快件查询</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">收件查询</a>
-                    <a href="distribute.jsp">寄件查询</a>
+                    <a href="/Express/servlet/receiveC">收件查询</a>
+                    <a href="/Express/servlet/sendC">寄件查询</a>
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件</a>
+                <a href="/Express/send.jsp">寄件</a>
 
             </li>
              <li>
-                <a href="space_gui.jsp">时间管理</a>
+                <a href="/Express/timetable.jsp">时间管理</a>
                 <div class="chilNav">
-                    <a href="timetable.jsp">录入时间表</a>
-                    <a href="timedelay.jsp">申请延迟取件</a>
+                    <a href="/Express/timetable.jsp">录入时间表</a>
+                    <a href="/Express/timedelay.jsp">申请延迟取件</a>
 
                 </div>
             </li>
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile1"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
             <div class="clears"></div>
         </ul>
@@ -167,7 +167,7 @@
                 <div class="index-search-list">
                     <div class="isl-box">
                         <h2>时间管理</h2>
-                        <form action="#" method="get">
+                        <form action="choose_index" name="choose" method="get">
                             <div class="islinput">
                                 <span ><big>时间管理类型:</big></span>
                                 <select>
@@ -225,18 +225,18 @@
       <div class="width1003">
       <ul>
         <li class="ft-title">快件查询</li>
-        <li><a href="sign.jsp">收件查询</a></li>
-        <li><a href="distribute.jsp">寄件查询</a></li>
+        <li><a href="/Express/receive_client.jsp">收件查询</a></li>
+        <li><a href="/Express/send_client.jsp">寄件查询</a></li>
     
        </ul>
        <ul>
         <li class="ft-title">寄件</li>
-        <li><a href="space_gui.jsp">寄件申请</a></li>
+        <li><a href="/Express/send.jsp">寄件申请</a></li>
        </ul>
        <ul>
         <li class="ft-title">时间管理</li>
-        <li><a href="timetable.jsp">录入时间表</a></li>
-        <li><a href="timedelay.jsp">申请延迟</a></li>
+        <li><a href="/Express/timetable.jsp">录入时间表</a></li>
+        <li><a href="/Express/timedelay.jsp">申请延迟</a></li>
        </ul>
      
        <div class="footcontact">

@@ -23,11 +23,20 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+           var tip = null;
+     <% String msg=(String)request.getAttribute("msg");if(msg!=null){String temp = "tip = '"+msg+"'";out.println(temp);}%>
+    if(tip!=null){
+        window.onload = function(){
+        alert(tip);
+         }
+     }
+ </script>
 </head>
 <body>
     <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="index_client.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -49,32 +58,32 @@
         <div class="nav-close"><span class="glyphicon glyphicon-remove"></span></div>
     </div>
     <div class="clearfix"></div>
-   <div class="nav">
+  <div class="nav">
         <ul class="width1003">
-            <li><a href="index_client.jsp">首页</a></li>
+            <li><a href="/Express/index_client.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">快件查询</a>
+                <a href="/Express/servlet/receiveC">快件查询</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">收件查询</a>
-                    <a href="distribute.jsp">寄件查询</a>
+                    <a href="/Express/servlet/receiveC">收件查询</a>
+                    <a href="/Express/servlet/sendC">寄件查询</a>
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件</a>
+                <a href="/Express/send.jsp">寄件</a>
 
             </li>
              <li>
-                <a href="space_gui.jsp">时间管理</a>
+                <a href="/Express/timetable.jsp">时间管理</a>
                 <div class="chilNav">
-                    <a href="timetable.jsp">录入时间表</a>
-                    <a href="timedelay.jsp">申请延迟取件</a>
+                    <a href="/Express/timetable.jsp">录入时间表</a>
+                    <a href="/Express/timedelay.jsp">申请延迟取件</a>
 
                 </div>
             </li>
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="enter_profile1"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
             <div class="clears"></div>
         </ul>
@@ -83,7 +92,7 @@
                 <body text="#000000">
                 <br>
                 <br>
-                <form action="/reedtioncurriculum/" method="POST">
+                <form action="timetable" method="POST" target="iframe">
                         <div style="margin-left:30px">
                         <table border="2" cellspacing="0" cellpadding="0" class="doctor_table" width="1200">
                             <tr>
@@ -102,43 +111,43 @@
                             <tr>
                                 <td class="tb_header">6:00-8:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="11" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="21" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="31" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="41" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="51" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="61" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="71" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -147,43 +156,43 @@
                             <tr>
                                 <td class="tb_header">8:00-10:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="12" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="22" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="32" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="42" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="52" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="62" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="72" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -192,43 +201,43 @@
                              <tr>
                                 <td class="tb_header">10:00-12:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="13" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="23" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="33" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="43" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="53" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="63" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="73" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -237,43 +246,43 @@
                              <tr>
                                 <td class="tb_header">12:00-14:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="14" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="24" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="34" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="44" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="54" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="64" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="74" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -282,43 +291,43 @@
                              <tr>
                                 <td class="tb_header">14:00-16:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="15" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="25" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="35" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="45" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="55" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="65" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="75" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -327,43 +336,43 @@
                              <tr>
                                 <td class="tb_header">16:00-18:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="16" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="26" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="36" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="46" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="56" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="66" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="76" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -372,43 +381,43 @@
                              <tr>
                                 <td class="tb_header">18:00-19:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="17" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="27" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="37" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="47" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="57" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="67" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="77" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -417,43 +426,43 @@
                                 <tr>
                                 <td class="tb_header">19:00-21:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="18" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="28" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="38" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="48" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="58" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="68" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="78" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -462,43 +471,43 @@
                            <tr>
                                 <td class="tb_header">21:00-23:00</td>
                                 <td> 
-                                   <select name="monday_1" style="font-size:1em">
+                                   <select name="19" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                             	<td> 
-                                   <select name="monday_2" style="font-size:1em">
+                                   <select name="29" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_3" style="font-size:1em">
+                                   <select name="39" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_4" style="font-size:1em">
+                                   <select name="49" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_5" style="font-size:1em">
+                                   <select name="59" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_6" style="font-size:1em">
+                                   <select name="69" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
                                 </td>
                                 <td> 
-                                   <select name="monday_7" style="font-size:1em">
+                                   <select name="79" style="font-size:1em">
                                       <option style="font-size:1em">空闲</option>
                                       <option style="font-size:1em">繁忙</option>
                                    </select>
@@ -511,17 +520,18 @@
                               <input type="submit" style="width:120px;height:40px;font-size:1.6em;"value="提交时间表" />
                         </div>
                 </form>
+                <iframe id="iframe" name="iframe" style="display:none;"></iframe>
    <footer>
       <div class="width1003">
       <ul>
         <li class="ft-title">快件查询</li>
-        <li><a href="sign.jsp">收件查询</a></li>
-        <li><a href="distribute.jsp">寄件查询</a></li>
+        <li><a href="receive_client.jsp">收件查询</a></li>
+        <li><a href="send_client.jsp">寄件查询</a></li>
     
        </ul>
        <ul>
         <li class="ft-title">寄件</li>
-        <li><a href="space_gui.jsp">寄件申请</a></li>
+        <li><a href="send.jsp">寄件申请</a></li>
        </ul>
        <ul>
         <li class="ft-title">时间管理</li>

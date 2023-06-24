@@ -1,16 +1,22 @@
 ﻿/// <reference path="jquery-1.9.1.min.js" />
 $(function () {
-    $(".Js_closeBtn").click(function () {
-        $(".adduser,.f_delete").fadeOut(200);
+	/* $(".Js_closeBtn").click(function () {
+        $(".adduser,.f_delete,.f_alert,.f_detain").fadeOut(200);
     });
     $(".Js_edit").click(function () {
 
         $(".adduser").fadeIn(200);
     });
-    $(".Js_delete").click(function () {
+    $(".Js_delete1").click(function () {
         $(".f_delete").fadeIn(200);
     });
-
+    $(".Js_detain").click(function () {
+        $(".f_detain").fadeIn(200);
+    });
+    $(".Js_alert").click(function () {
+        $(".f_alert").fadeIn(200);
+    });
+*/
     //左侧菜单
     //$(".Js_MenuList").click(function () {
     //    if ($(".Js_leftBox").css("left") == "0px") {

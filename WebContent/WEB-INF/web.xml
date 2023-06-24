@@ -1,8 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
 
+
+
  <display-name>Express</display-name>
  
+ 	 <servlet>
+    <servlet-name>sign</servlet-name>
+    <servlet-class>servlet.sign</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>sign</servlet-name>
+    <url-pattern>/servlet/sign</url-pattern>
+  </servlet-mapping>
+    
+     <servlet>
+    <servlet-name>distribute</servlet-name>
+    <servlet-class>servlet.distribute</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>distribute</servlet-name>
+    <url-pattern>/servlet/distribute</url-pattern>
+  </servlet-mapping>
+    
+     <servlet>
+    <servlet-name>example</servlet-name>
+    <servlet-class>servlet.example</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>example</servlet-name>
+    <url-pattern>/servlet/example</url-pattern>
+  </servlet-mapping>
+    
+     <servlet>
+    <servlet-name>order</servlet-name>
+    <servlet-class>servlet.order</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>order</servlet-name>
+    <url-pattern>/servlet/order</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>report</servlet-name>
+    <servlet-class>servlet.report</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>report</servlet-name>
+    <url-pattern>/servlet/report</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>send</servlet-name>
+    <servlet-class>servlet.send</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>send</servlet-name>
+    <url-pattern>/servlet/send</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>sendC</servlet-name>
+    <servlet-class>servlet.sendC</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>sendC</servlet-name>
+    <url-pattern>/servlet/sendC</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>receiveC</servlet-name>
+    <servlet-class>servlet.receiveC</servlet-class>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>receiveC</servlet-name>
+    <url-pattern>/servlet/receiveC</url-pattern>
+  </servlet-mapping>
+    
   <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

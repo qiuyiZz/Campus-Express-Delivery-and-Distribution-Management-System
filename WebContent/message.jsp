@@ -62,7 +62,7 @@
     <!-- Main header start -->
     <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="/Express/index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -86,41 +86,41 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/sign">收件管理</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/sign">签收录入</a>
+                    <a href="/Express/servlet/distribute">派件</a>
+                    <a href="/Express/servlet/example">问题件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
+                <a href="/Express/servlet/order">寄件管理</a>
+                
 
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
+                <a href="#">查看空间信息</a>
                 <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
+                    <a href="/Express/enter_grid">自提柜</a>
+                    <a href="/Express/enter_shelf">货架区</a>
                 </div>
             </li>
             <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
+                <a href="/Express/servlet/report">查看每日报告</a>
 
             </li>
 
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
-            <div class="clears"></div>
-        </ul>
-    </div><!--nav/-->
+       <div class="clears"></div>
+      </ul>
+     </div><!--nav/-->
     <!-- Main header end -->
     <!-- Dashbord start -->
     <div class="dashboard">
@@ -137,7 +137,7 @@
                             <ul>
                                 <li><a href="my-profile.jsp"><i class="flaticon-people"></i>个人信息</a></li>
                                 <li ><a href="change_password.jsp"><i class="flaticon-people"></i>修改密码</a></li>
-                                <li><a href="index.jsp"><i class="flaticon-logout"></i>退出登录</a></li>
+                                <li><a href="login.jsp"><i class="flaticon-logout"></i>退出登录</a></li>
                             </ul>
                         </div>
                     </div>

@@ -161,14 +161,26 @@
                 text-align: center
             }
     </style>
-
+<script type="text/javascript">
+           var tip = null;
+     <% String msg=(String)request.getAttribute("msg");if(msg!=null){String temp = "tip = '"+msg+"'";out.println(temp);}%>
+    if(tip!=null){
+        window.onload = function(){
+        alert(tip);
+         }
+     }
+ </script>
+ <% 
+    Integer totalfield=(Integer)request.getAttribute("totalfield");
+    Integer totalgrid=(Integer)request.getAttribute("totalgrid");
+%>
 </head>
 
 <body>
 
-     <div class="header">
+   <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="/Express/index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -192,41 +204,41 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/sign">收件管理</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/sign">签收录入</a>
+                    <a href="/Express/servlet/distribute">派件</a>
+                    <a href="/Express/servlet/example">问题件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
+                <a href="/Express/servlet/order">寄件管理</a>
+                
 
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
+                <a href="#">查看空间信息</a>
                 <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
+                    <a href="/Express/enter_grid">自提柜</a>
+                    <a href="/Express/enter_shelf">货架区</a>
                 </div>
             </li>
             <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
+                <a href="/Express/servlet/report">查看每日报告</a>
 
             </li>
 
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
-            <div class="clears"></div>
-        </ul>
-    </div><!--nav/-->
+       <div class="clears"></div>
+      </ul>
+     </div><!--nav/-->
     <div id="main">
 
         <div class="demo">
@@ -234,14 +246,12 @@
                 <div class="front">货架区</div>
             </div>
             <div class="booking-details">
-                <p>总货架数：<span>8</span></p>
-                <p>最大可存快递数：<span>80</span></p>
-                <p>已满货架数：<span>9</span></p>
-                <p>未满货架数：<span>71</span></p>
-                <p>货架区使用率：<span>10%</span></p>
-                <form action="#" method="get">
-                    <div><p>快递柜选择：<ul id="selected-seats"></ul></p></div>
-                    <div class="islinput"><p>请输入订单号：<input type="text"/></p></div>
+                <p>总货架数：<span><%=totalfield%></span></p>
+                <p>已存入快递数：<span><%=totalgrid%></span></p>
+                <form action="save_grid" method="post">
+                    <div><p>货架区选择：<ul id="selected-seats"></ul></p></div>
+                    <input type="hidden" value="2号3层" id="input" name="shelf" />
+                    <div class="islinput"><p>请输入订单号：<input type="text" name="order"/></p></div>
                     <div><p></p><input type="submit" class="checkout-button" value="存入快递" /></div>
                 </form>  
 
@@ -260,6 +270,7 @@
             var $cart = $('#selected-seats'), /*座位区*/
                 $counter = $('#counter'), /*票数*/
                 $total = $('#total'); /*总计金额*/
+                $input=$('#input');
 
             var sc = $('#seat-map').seatCharts({
                 map: [  /*座位图*/
@@ -287,11 +298,11 @@
                 },
                 click: function () { /*点击事件*/
                     if (this.status() == 'available') { /*可选座*/
-                        $('<li>' + (this.settings.row + 1) + '货架' + this.settings.label + '层</li>')
+                        $('<li>' + (this.settings.row + 1) + '号' + this.settings.label + '层</li>')
                             .attr('id', 'cart-item-' + this.settings.id)
                             .data('seatId', this.settings.id)
                             .appendTo($cart);
-
+                        $input.val(this.settings.id);
                         $counter.text(sc.find('selected').length + 1);
                         $total.text(recalculateTotal(sc) + 1);
 

@@ -10,7 +10,8 @@ public class result1 {
 	public String g;
 	public String h;
 	public String i;
-	public result1(String a,String b,String c,String d,String e,String f,String g,String h,String i) {
+	public String j;
+	public result1(String a,String b,String c,String d,String e,String f,String g,String h,String i,String j) {
 		this.a=a;
 		this.b=b;
 		this.c=c;
@@ -20,7 +21,7 @@ public class result1 {
 		this.g=g;
 		this.h=h;
 		this.i=i;
-		
+		this.j=j;
 	}
 	
 }

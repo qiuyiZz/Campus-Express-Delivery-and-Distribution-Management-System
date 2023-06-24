@@ -57,12 +57,37 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+    
+    <% 
+    String name=(String)request.getAttribute("name");
+    String role=(String)request.getAttribute("role");
+    String address=(String)request.getAttribute("address");
+    String phone=(String)request.getAttribute("phone");
+	%>
+	
+	var name="<%=name%>";
+	var role="<%=role%>";
+	var address="<%=address%>";
+	var phone="<%=phone%>";
+	
+             window.onload = function(){
+                var oName = document.getElementById('name');
+                var oPhone = document.getElementById('phone');
+                var oRole = document.getElementById('role');
+                var oAddress = document.getElementById('address');
+                oName.setAttribute("placeholder",name);
+                oPhone.setAttribute("placeholder",phone);
+                oRole.setAttribute("placeholder",role);
+                oAddress.setAttribute("placeholder",address);
+             };
+     </script>
 </head>
 <body>
     <!-- Main header start -->
-     <div class="header">
+    <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="index_client.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -86,37 +111,30 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index_client.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/receiveC">快件查询</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/receiveC">收件查询</a>
+                    <a href="/Express/servlet/sendC">寄件查询</a>
+                </div>
+            </li>
+            <li>
+                <a href="/Express/send.jsp">寄件</a>
+
+            </li>
+             <li>
+                <a href="/Express/timetable.jsp">时间管理</a>
+                <div class="chilNav">
+                    <a href="/Express/timetable.jsp">录入时间表</a>
+                    <a href="/Express/timedelay.jsp">申请延迟取件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
-
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
-                <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
-                </div>
-            </li>
-            <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
-
-            </li>
-
-            <li>
-            </li>
-            <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile1"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
             <div class="clears"></div>
         </ul>
@@ -131,13 +149,13 @@
                         <div class="dashboard-inner">
                             <h4>消息</h4>
                             <ul>
-                                <li><a href="message.jsp"><i class="flaticon-mail"></i>消息提醒<span class="nav-tag">6</span></a></li>
+                                <li><a href="message1.jsp"><i class="flaticon-mail"></i>消息提醒<span class="nav-tag">6</span></a></li>
                             </ul>
                             <h4>账户</h4>
                             <ul>
-                                <li class="active"><a href="my-profile.jsp"><i class="flaticon-people"></i>个人信息</a></li>
-                                <li><a href="change_password.jsp"><i class="flaticon-people"></i>修改密码</a></li>
-                                <li><a href="index.jsp"><i class="flaticon-logout"></i>退出登录</a></li>
+                                <li class="active"><a href="my-profile1.jsp"><i class="flaticon-people"></i>个人信息</a></li>
+                                <li><a href="change_password1.jsp"><i class="flaticon-people"></i>修改密码</a></li>
+                                <li><a href="login.jsp"><i class="flaticon-logout"></i>退出登录</a></li>
                             </ul>
                         </div>
                     </div>
@@ -165,25 +183,25 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group name">
                                                     <label>姓名</label>
-                                                    <input type="text" name="name" class="form-control" placeholder="John Deo">
+                                                    <input type="text" name="name" id="name" class="form-control" placeholder="张三">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group email">
                                                     <label>角色</label>
-                                                    <input type="text" name="title" class="form-control" placeholder="Your Title">
+                                                    <input type="text" name="role" id="role" class="form-control" placeholder="学生">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group subject">
                                                     <label>电话</label>
-                                                    <input type="text" name="phone" class="form-control" placeholder="Phone">
+                                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="2017312281">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group number">
                                                     <label>个人住址</label>
-                                                    <input type="text" name="address" class="form-control" placeholder="Address">
+                                                    <input type="text" name="address" id="address" class="form-control" placeholder="中央财经大学">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -202,33 +220,24 @@
                 </div>
             </div>
                     <!-- Dashbord end -->
-                    <footer>
+            <footer>
       <div class="width1003">
       <ul>
-        <li class="ft-title">收件管理</li>
-        <li><a href="sign.jsp">签收录入</a></li>
-        <li><a href="distribute.jsp">派件</a></li>
-        <li><a href="example.jsp">问题件</a></li>
+        <li class="ft-title">快件查询</li>
+        <li><a href="receive_client.jsp">收件查询</a></li>
+        <li><a href="send_client.jsp">寄件查询</a></li>
     
        </ul>
        <ul>
-        <li class="ft-title">寄件管理</li>
-        <li><a href="order.jsp">删除订单</a></li>
-        <li><a href="order.jsp">提交订单</a></li>
-   
+        <li class="ft-title">寄件</li>
+        <li><a href="send.jsp">寄件申请</a></li>
        </ul>
        <ul>
-        <li class="ft-title">查看空间信息</li>
-        <li><a href="space_gui.jsp">自提柜</a></li>
-        <li><a href="space_shelf.jsp">货架区</a></li>
-  
+        <li class="ft-title">时间管理</li>
+        <li><a href="timetable.jsp">录入时间表</a></li>
+        <li><a href="timedelay.jsp">申请延迟</a></li>
        </ul>
-       <ul>
-        <li class="ft-title">查看每日报告</li>
-        <li><a href="DailyReport.jsp">生成报告</a></li>
-        <li><a href="DailyReport.jsp">打印报告</a></li>
-    
-       </ul>
+     
     
      
        <div class="footcontact">

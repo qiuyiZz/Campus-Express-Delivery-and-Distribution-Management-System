@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,14 +163,46 @@
                 text-align: center
             }
     </style>
-
+    <script type="text/javascript">
+           var tip = null;
+     <% String msg=(String)request.getAttribute("msg");if(msg!=null){String temp = "tip = '"+msg+"'";out.println(temp);}%>
+    if(tip!=null){
+        window.onload = function(){
+        alert(tip);
+         }
+     }
+/*
+   function a(){
+                var grid = document.getElementById('grid');
+            var input = document.getElementById('input');
+                var id=grid.getAttribute('value');
+			alert(id);
+            input.setAttribute("value",id);
+             };*/
+ </script>
+    <% 
+    Integer totalfield=(Integer)request.getAttribute("totalfield");
+    Integer totalgrid=(Integer)request.getAttribute("totalgrid");
+    Integer totaloccupy=(Integer)request.getAttribute("totaloccupy");
+    Integer totalfree=(Integer)request.getAttribute("totalfree");
+    ArrayList<String> occupylist=(ArrayList<String>)request.getAttribute("occupyList");
+    
+    String occupyList="['";
+    for(int i=0;i<occupylist.size()-1;i++){
+    	occupyList+=occupylist.get(i)+"','";
+    }
+    
+    occupyList+=occupylist.get(occupylist.size()-1)+"']";
+    
+    Double rate = (double) ((totaloccupy* 100/totalgrid ) / 100.0);//快递柜占用率 保留两位小数
+	%>
 </head>
 
 <body>
 
    <div class="header">
         <div class="width1003">
-            <h3 class="logo"><a href="index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
+            <h3 class="logo"><a href="/Express/index.jsp"><img src="/Express/static/image/logo.jpg" width="80" />&nbsp;&nbsp;&nbsp;元创易站</a></h3>
             <div class="topLink">
                 <a href="contact.html" class="tl1">联系我们</a>
                 <a href="service.html" class="tl2">投诉建议</a>
@@ -192,41 +226,41 @@
     <div class="clearfix"></div>
     <div class="nav">
         <ul class="width1003">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="/Express/index.jsp">首页</a></li>
             <li>
-                <a href="sign.jsp">收件管理</a>
+                <a href="/Express/servlet/sign">收件管理</a>
                 <div class="chilNav">
-                    <a href="sign.jsp">签收录入</a>
-                    <a href="distribute.jsp">派件</a>
-                    <a href="example.jsp">问题件</a>
+                    <a href="/Express/servlet/sign">签收录入</a>
+                    <a href="/Express/servlet/distribute">派件</a>
+                    <a href="/Express/servlet/example">问题件</a>
 
                 </div>
             </li>
             <li>
-                <a href="order.jsp">寄件管理</a>
+                <a href="/Express/servlet/order">寄件管理</a>
+                
 
             </li>
             <li>
-                <a href="space_gui.jsp">查看空间信息</a>
+                <a href="#">查看空间信息</a>
                 <div class="chilNav">
-                    <a href="space_gui.jsp">自提柜</a>
-                    <a href="space_shelf.jsp">货架区</a>
-
+                    <a href="/Express/enter_grid">自提柜</a>
+                    <a href="/Express/enter_shelf">货架区</a>
                 </div>
             </li>
             <li>
-                <a href="DailyReport.jsp">查看每日报告</a>
+                <a href="/Express/servlet/report">查看每日报告</a>
 
             </li>
 
             <li>
             </li>
             <li>
-                <a href="my-profile.jsp"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
+                <a href="/Express/enter_profile"><img src="/Express/static/image/个人中心.png" width="45"/>个人中心</a>
             </li>
-            <div class="clears"></div>
-        </ul>
-    </div><!--nav/-->
+       <div class="clears"></div>
+      </ul>
+     </div><!--nav/-->
     <div id="main">
 
         <div class="demo">
@@ -234,16 +268,17 @@
                 <div class="front">快递柜</div>
             </div>
             <div class="booking-details">
-                <p>总区数：<span>8</span></p>
-                <p>总快递柜数：<span>80</span></p>
-                <p>已占用快递柜数：<span>9</span></p>
-                <p>未占用快递柜数：<span>71</span></p>
-                <p>快递柜使用率：<span>10%</span></p>
+                <p>总区数：<span><%=totalfield%></span></p>
+                <p>总快递柜数：<span><%=totalgrid%></span></p>
+                <p>已占用快递柜数：<span><%=totaloccupy%></span></p>
+                <p>未占用快递柜数：<span><%=totalfree%></span></p>
+                <p>快递柜使用率：<span><%=rate%></span></p>
                 <p></p>
-                <form action="#" method="get">
+                <form action="save_grid" method="get">
                     <div><p>快递柜选择：<ul id="selected-seats"></ul></p></div>
-                    <div class="islinput"><p>请输入订单号：<input type="text"/></p></div>
-                    <div><p></p><input type="submit" class="checkout-button" value="存入快递" /></div>
+                    <input type="hidden" value="4区2号" id="input" name="grid" />
+                    <div class="islinput"><p>请输入订单号：<input type="text" name="order" /></p></div>
+                    <div><p></p><input type="submit" onclick=a()  class="checkout-button" value="存入快递" /></div>
                 </form>   
                 <div id="legend"></div>
             </div>
@@ -260,6 +295,7 @@
             var $cart = $('#selected-seats'), /*座位区*/
                 $counter = $('#counter'), /*票数*/
                 $total = $('#total'); /*总计金额*/
+                $input=$('#input');
 
             var sc = $('#seat-map').seatCharts({
                 map: [  /*座位图*/
@@ -287,11 +323,11 @@
                 },
                 click: function () { /*点击事件*/
                     if (this.status() == 'available') { /*可选座*/
-                        $('<li>' + (this.settings.row + 1) + '区' + this.settings.label + '号</li>')
+                    	$('<li>' + (this.settings.row + 1) + '区' + this.settings.label + '号<li>')
                             .attr('id', 'cart-item-' + this.settings.id)
                             .data('seatId', this.settings.id)
                             .appendTo($cart);
-
+                    	$input.val(this.settings.id);
                         $counter.text(sc.find('selected').length + 1);
                         $total.text(recalculateTotal(sc) + 1);
 
@@ -314,9 +350,8 @@
                 }
             });
             /*已售出的座位*/
-            sc.get(['1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8', '10_1', '10_2']).status('unavailable');
-
-
+            //sc.get(['1_1','1_5']).status('unavailable');
+            sc.get(<%=occupyList%>).status('unavailable');
         });
         /*计算总金额*/
         function recalculateTotal(sc) {

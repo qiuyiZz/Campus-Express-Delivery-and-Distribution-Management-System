@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.alibaba.fastjson.JSON;
 
+import database.Login;
+
 /**
  * Servlet implementation class sendC
  */
@@ -34,54 +36,23 @@ public class sendC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//替换掉这个arraylist
-				ArrayList<ArrayList<String>>l=new ArrayList<ArrayList<String>>();
-				ArrayList<String>l1=new ArrayList();
-				l1.add("aa");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				l1.add("a");
-				
-				ArrayList<String>l2=new ArrayList();
-				l2.add("bb");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				l2.add("b");
-				
-				ArrayList<String>l3=new ArrayList();
-				l3.add("cc");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				l3.add("c");
-				
-				
-				l.add(l1);
-				l.add(l2);
-				l.add(l3);
-				
+		
+		Login su = new Login("superuser","1234567");
+		su.login();
+		//获取登录用户信息
+		HttpSession isession = request.getSession();
+		String userID=(String) isession.getAttribute("userID");
+		//应从前端获取到寄件人id
+		ArrayList<ArrayList> l = su.select("post,express","post.expressNumber,expressCompany,senderName" + 
+				",senderTel,senderAddress,post.recipientName,post.recipientTel,recipientAddress,placetime,payment","senderTel="+userID+" and post.expressNumber=express.expressNumber"); 
 				
 				ArrayList<result3>lr=(ArrayList<result3>)new ArrayList();
 				for(int i=0;i<l.size();i++) {
 					
-					lr.add(new result3(l.get(i).get(0),l.get(i).get(1),l.get(i).get(2),l.get(i).get(3),l.get(i).get(4),l.get(i).get(5),l.get(i).get(6),l.get(i).get(7),l.get(i).get(8),l.get(i).get(9)));
+					lr.add(new result3(l.get(i).get(0).toString(),l.get(i).get(1).toString(),l.get(i).get(2).toString(),
+							l.get(i).get(3).toString(),l.get(i).get(4).toString(),l.get(i).get(5).toString(),
+							l.get(i).get(6).toString(),l.get(i).get(7).toString(),l.get(i).get(8).toString(),
+							l.get(i).get(9).toString()));
 				}
 				
 		
