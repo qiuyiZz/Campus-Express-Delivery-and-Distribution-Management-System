@@ -1,9 +1,11 @@
 # Campus-Parcel-Service-Management-System
-- Utilized Use Case Modeling for requirement analysis and adopted object-oriented methods to design the system
-- Built a full-stack platform for both administrators and Customers and developed independent modules including
-Locker&Shelf management, Parcels Management, Daily report, and delivery Time Management. Achieve Frontend and
-Backend with HTML/CSS, JavaScript, jQuery, Servlet/JSP, and SQLServer for database, and run with Tomcat 9.0 server
-- Applied Bootstrap framework to customize response components for web pages
+- Employed Use Case Modeling for in-depth requirement analysis, subsequently adopting object-oriented design methodologies.
+
+- Architected a comprehensive full-stack platform catering to both administrators and customers, featuring distinct modules for Locker & Shelf Management, Parcels Management, Daily Reporting, and Delivery Time Management.
+
+- Leveraged HTML/CSS, JavaScript, jQuery, and Servlet/JSP for seamless frontend and backend development, integrating SQLServer for robust database management. Deployed on Tomcat 9.0 server for optimal performance.
+
+- Incorporated the Bootstrap framework to craft responsive web components, ensuring an intuitive and adaptive user experience across devices.
 
 
 ### Login & Signup
