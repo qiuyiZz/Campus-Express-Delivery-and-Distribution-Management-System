@@ -2,7 +2,7 @@
 - Utilized Use Case Modeling for requirement analysis and adopted object-oriented methods to design the system
 - Built a full-stack platform for both administrators and Customers and developed independent modules including
 Locker&Shelf management, Parcels Management, Daily report, and delivery Time Management. Achieve Frontend and
-Backend with HTML/CSS, JavaScript, jQuery, JSP, and SQLServer for database, and run with Tomcat 9.0 server
+Backend with HTML/CSS, JavaScript, jQuery, Servlet/JSP, and SQLServer for database, and run with Tomcat 9.0 server
 - Applied Bootstrap framework to customize response components for web pages
 
 
